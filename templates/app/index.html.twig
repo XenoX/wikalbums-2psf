@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AppController!{% endblock %}
+
+{% block body %}
+    <h1>Les derniers artists</h1>
+    <hr>
+    <div class="row">
+        {% for artist in artists %}
+            {% include 'partials/_artist_card.html.twig' with {'artist': artist} %}
+        {% endfor %}
+    </div>
+
+    <h1>Les derniers albums</h1>
+    <hr>
+    <div class="row">
+        {% for album in albums %}
+            {% include 'partials/_album_card.html.twig' with {'album': album} %}
+        {% endfor %}
+    </div>
+{% endblock %}

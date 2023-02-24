@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ artist.name }}{% endblock %}
+
+{% block body %}
+    <h2>{{ artist.name }}</h2>
+    <hr>
+    <img src="{{ artist.photo }}" alt="">
+    <b>Pays</b> : {{ artist.country }}<br>
+    <b>Née le</b> : {{ artist.dateOfBirth|date('d/m/Y') }}<br>
+    <br><br>
+    {% if artist.albums|length > 0 %}
+        <h2>Sa discographie</h2>
+        <hr>
+        <div class="row">
+            {% for album in artist.albums %}
+                {% include 'partials/_album_card.html.twig' with {'album': album} %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

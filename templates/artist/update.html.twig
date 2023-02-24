@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un artiste{% endblock %}
+
+{% block body %}
+    <h2>Modifier l'artiste "{{ artist.name }}"</h2>
+    <hr>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Modifier" class="btn btn-primary">
+    {{ form_end(form) }}
+{% endblock %}

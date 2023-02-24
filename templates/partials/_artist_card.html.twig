@@ -1,0 +1,32 @@
+<div class="col-3 mb-4">
+    <div class="card">
+        <img src="{{ artist.photo }}" class="card-img-top" alt="">
+        <div class="card-body">
+            <h5 class="card-title">{{ artist.name }}</h5>
+            <p class="card-text">
+                <b>Pays</b> : {{ artist.country }}<br>
+                <b>Née le</b> : {{ artist.dateOfBirth|date('d/m/Y') }}<br>
+                {% if artist.albums|length > 0 %}
+                    <b>Album(s)</b> :
+                    {% for album in artist.albums %}
+                        {{ album.name }}{{ not loop.last ? ', ' }}
+                    {% endfor %}
+                {% endif %}
+                <br><br>
+            </p>
+            <a class="btn btn-primary" href="{{ path('app_artist_show', {'id': artist.id}) }}">
+                Voir
+            </a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="btn btn-info" href="{{ path('app_artist_update', {'id': artist.id}) }}">
+                    Modifier
+                </a>
+            {% endif %}
+{#                            {% if is_granted('ROLE_ADMIN') %}#}
+            {#                    <a class="btn btn-danger mt-2" href="{{ path('app_pokemon_delete', {'id': pokemon.id}) }}">#}
+            {#                        Supprimer#}
+            {#                    </a>#}
+            {#                {% endif %}#}
+        </div>
+    </div>
+</div>

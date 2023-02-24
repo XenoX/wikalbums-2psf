@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel artist{% endblock %}
+
+{% block body %}
+    <h2>Nouvel artist</h2>
+    <hr>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Ajouter" class="btn btn-primary">
+    {{ form_end(form) }}
+{% endblock %}
